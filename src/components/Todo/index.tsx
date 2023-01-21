@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
@@ -8,14 +8,13 @@ type Props = {
   onRemove: () => void;
 };
 
-export function Todo({ description, onRemove }: Props) {
+export function Todo({ description, onRemove}: Props) {
+
   return (
     <View style={styles.container}>
-      <View style={styles.check}>
-      <TouchableOpacity style={styles.button} onPress={onRemove}>
-
+      <TouchableOpacity style={styles.button}>
+        <View style={styles.check}></View>
       </TouchableOpacity>
-      </View>
       <View style={styles.description}>
         <Text style={styles.descriptionText}>
             { description }

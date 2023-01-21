@@ -3,11 +3,14 @@ import { Text, TextInput, View, Image, TouchableOpacity, Alert, FlatList } from 
 
 import { styles } from "./styles";
 import { Todo } from "../../components/Todo";
+import { EmptyList } from "../../components/EmptyList";
 
 export default function Home() {
   const [inputFocus, setInputFocus] = useState("#0D0D0D");
   const inputOnFocus = () => setInputFocus("#4EA8DE");
   const inputOnBlur = () => setInputFocus("#0D0D0D");
+
+  const [countCreated, setCountCreated] = useState(0);
 
   const [toDos, setToDos] = useState<string[]>([]);
   const [toDosText, setToDosText] = useState('');
@@ -26,6 +29,7 @@ export default function Home() {
       );
     }
     setToDos(prevState => [...prevState, toDosText]);
+    setCountCreated(countCreated + 1);
     setToDosText('');
   }
 
@@ -36,7 +40,10 @@ export default function Home() {
       [
         {
           text: "Sim", 
-          onPress: () => setToDos(prevState => prevState.filter(todo => todo !== tarefa))
+          onPress: () => {
+            setToDos(prevState => prevState.filter(todo => todo !== tarefa))
+            setCountCreated(countCreated - 1)
+          }
         },
         {
           text: "Não",
@@ -74,7 +81,7 @@ export default function Home() {
       <View style={styles.totalToDo}>
         <View style={styles.totalCreated}>
           <Text style={styles.textTotalCreated}>Criadas</Text>
-          <Text style={styles.textCounter}>0</Text>
+          <Text style={styles.textCounter}>{countCreated}</Text>
         </View>
         <View style={styles.totalConcluded}>
           <Text style={styles.textTotalConcluded}>Concluídas</Text>
@@ -94,7 +101,7 @@ export default function Home() {
         )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
-          <Text>Sua lista está vazia.</Text>
+          <EmptyList />
         )}
       />
       </View>

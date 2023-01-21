@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
         borderRadius: 6,
         borderWidth: 1,
         backgroundColor: '#262626',
+        color: '#FFF',
     },
     button:{
         justifyContent: 'center',
@@ -74,6 +75,7 @@ export const styles = StyleSheet.create({
     },
     textCounter:{
         backgroundColor: '#333333',
+        color: '#FFF',
         justifyContent: 'center',
         textAlign: 'center',
         borderRadius: 16,

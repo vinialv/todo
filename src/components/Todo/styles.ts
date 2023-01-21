@@ -31,6 +31,7 @@ export const styles = StyleSheet.create({
     },
     descriptionText:{
         textAlign: 'left',
+        color: '#FFF'
     },
     button:{
         width: 50,

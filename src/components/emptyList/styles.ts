@@ -5,20 +5,20 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        borderTopColor: '#3D3D3D',
-        borderWidth: 1,      
+        borderColor: '#3D3D3D',
+        borderTopWidth: 1,      
     },
     image:{
-        marginTop: 24,
+        marginTop: 48,
     },
     mainText:{
-        marginTop: 12,
-        fontSize: 16,
-        fontWeight: 700,
-        color: '#7F7F7F'
+        marginTop: 16,
+        fontWeight: 'bold',
+        color: '#7F7F7F',
+        fontSize: 14,
     },
     secondaryText:{
-        fontSize: 16,
+        fontSize: 14,
         color: '#7F7F7F'
     }
 });

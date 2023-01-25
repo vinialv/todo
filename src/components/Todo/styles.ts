@@ -14,14 +14,8 @@ export const styles = StyleSheet.create({
         marginBottom: 8,
     },
     check:{
-        width: 24,
-        height: 24,
-        backgroundColor: 'transparent',
-        borderWidth: 3,
-        borderColor: '#4EA8DE',
-        borderRadius: 20,
-        marginHorizontal: 12,
-        padding: 4
+        width: 25,
+        height: 25,
     },
     description:{
         flex: 1,
@@ -35,7 +29,9 @@ export const styles = StyleSheet.create({
     },
     button:{
         width: 50,
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
     },
+
 });

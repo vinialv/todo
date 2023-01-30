@@ -42,7 +42,4 @@ export const styles = StyleSheet.create({
         marginLeft: 8,
         fontSize: 16       
     },
-    todo:{
-        paddingHorizontal: 24,
-    },
 })

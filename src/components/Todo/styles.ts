@@ -28,10 +28,32 @@ export const styles = StyleSheet.create({
         color: '#FFF'
     },
     button:{
-        width: 50,
-        height: '100%',
+        paddingHorizontal: 10,
+        height: 28,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    taskChecked:{
+        flex: 1,
+        width: 28,
+        heiht: 28,
+        borderRadius: 20,
+        backgroundColor: '#8284FA',        
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    taskUnchecked:{
+        flex: 1,
+        width: 28,
+        heiht: 28,
+        borderRadius: 20,
+        borderColor: '#4EA8DE',
+        borderWidth: 3,        
+    },
+    descriptionTextChecked:{
+        textAlign: 'left',
+        color: '#7F7F7F',
+        textDecorationLine: 'line-through'
+    }
 
 });

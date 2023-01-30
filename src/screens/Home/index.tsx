@@ -4,36 +4,47 @@ import { Text, View, Image, Alert, FlatList } from "react-native";
 import { styles } from "./styles";
 import { Header } from "../../components/Header";
 import { ToDoInput } from "../../components/ToDoInput";
-import { TasksList } from "../../components/TasksList";
+import { Task, TasksList } from "../../components/TasksList";
+import { Teste } from "../../components/Teste";
+
 
 export function Home() {
+
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  function handleAddTask(newTaskName: string) {
-    const sameTaskName = tasks.find((task) => task.name === newTaskName);
-    console.log(sameTaskName);
+  function handleAddTask(newTaskTitle: string) {
+    const taskSameTitle = tasks.find((task) => task.title === newTaskTitle);
 
-    if (sameTaskName)
-      return Alert.alert(
-        "Tarefa já cadastrada",
-        "Não é possível inserir tarefas com nome repetido."
-      );
+    if (taskSameTitle) {
+      return Alert.alert("Tarefa já cadastrada", "Você não pode cadastrar com o mesmo nome");
+    }
 
     const newTask = {
       id: tasks.length + 1,
-      name: newTaskName,
+      title: newTaskTitle,
       done: false,
     };
-
     setTasks((oldTasks) => [...tasks, newTask]);
   }
 
-  function handleToDoRemove(tarefa: string) {
-    Alert.alert("Remover tarefa", `Você deseja remover a tarefa "${tarefa}"?`, [
+  function handleToggleTaskDone(id: number){
+    const updatedTasks = tasks.map((task) => ({ ...task }));
+    const taskToBeMarketAsDone = updatedTasks.find((item) => item.id === id);
+
+    if (!taskToBeMarketAsDone) return;
+
+    taskToBeMarketAsDone.done = !taskToBeMarketAsDone.done;
+
+    setTasks(updatedTasks); //assincrono
+  }
+
+  function handleToDoRemove(id: number) {
+    Alert.alert("Remover tarefa", `Tem certeza que você deseja remover esse item?`, [
       {
         text: "Sim",
         onPress: () => {
-          console.log("remover tarefa");
+          const updatedTasks = tasks.filter((task) => task.id !== id);
+          setTasks(updatedTasks);
         },
       },
       {
@@ -45,6 +56,7 @@ export function Home() {
 
   return (
     <View style={styles.container}>
+
       <Header />
       <ToDoInput addTask={handleAddTask} />
 
@@ -59,7 +71,11 @@ export function Home() {
         </View>
       </View>
 
-      <TasksList  />
+      <TasksList
+        tasks={tasks}
+        toggleTaskDone={handleToggleTaskDone}
+        removeTask={handleToDoRemove}
+      />
 
     </View>
   );

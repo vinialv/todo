@@ -30,8 +30,13 @@ export const styles = StyleSheet.create({
     button:{
         paddingHorizontal: 10,
         height: 28,
+        marginRight: 5,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    trash:{
+        width: 18,
+        height: 20,
     },
     taskChecked:{
         flex: 1,

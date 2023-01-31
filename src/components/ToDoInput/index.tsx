@@ -11,11 +11,11 @@ export function ToDoInput({ addTask }: TodoInputProps) {
   const [task, setTask] = useState("");
   const [inputFocus, setInputFocus] = useState("#0D0D0D");
   const inputOnFocus = () => setInputFocus("#4EA8DE");
-  const inputOnBlur = () => setInputFocus("#0D0D0D");
+  const inputOnBlur = () => setInputFocus("#0D0D0D"); 
 
   function handleAddNewTask() {
     if (!task) return;
-    addTask(task);
+    addTask(task);   
     setTask("");
   }
 

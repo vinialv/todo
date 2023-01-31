@@ -29,7 +29,7 @@ export function ToDo({ task, removeTask, toggleTaskDone }: Props) {
         style={styles.button}
         onPress={() => removeTask(task.id)}
       >
-        <Image source={require("../../assets/trash.png")} />
+        <Image source={require("../../assets/trash.png")} style={styles.trash}/>
       </TouchableOpacity>
     </View>
   );
